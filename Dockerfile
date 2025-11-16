@@ -7,6 +7,7 @@ RUN apt-get update && \
         cockpit \
         systemd \
         sudo \
+        network-manager \
         && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Créer un utilisateur administrateur avec mot de passe
