@@ -16,7 +16,8 @@ RUN useradd -m -s /bin/bash admin && \
     usermod -aG sudo admin
 
 # Activer NetworkManager au démarrage
-RUN systemctl enable NetworkManager
+RUN systemctl enable NetworkManager &&  \
+     nmcli con add type dummy con-name fake ifname fake0 ip4 1.2.3.4/24 gw4 1.2.3.1
 
 # Exposer le port par défaut de Cockpit
 EXPOSE 9090
