@@ -14,6 +14,9 @@ RUN useradd -m -s /bin/bash admin && \
     echo "admin:admin123" | chpasswd && \
     usermod -aG sudo admin
 
+# Activer NetworkManager au démarrage
+RUN systemctl enable NetworkManager
+
 # Exposer le port par défaut de Cockpit
 EXPOSE 9090
 
