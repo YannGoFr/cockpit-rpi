@@ -8,6 +8,7 @@ RUN apt-get update && \
         systemd \
         sudo \
         network-manager \
+        iproute2 \
         && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Créer un utilisateur administrateur avec mot de passe
