@@ -9,6 +9,11 @@ RUN apt-get update && \
         sudo \
         && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Créer un utilisateur administrateur avec mot de passe
+RUN useradd -m -s /bin/bash admin && \
+    echo "admin:admin123" | chpasswd && \
+    usermod -aG sudo admin
+
 # Exposer le port par défaut de Cockpit
 EXPOSE 9090
 
