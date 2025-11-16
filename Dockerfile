@@ -20,7 +20,8 @@ RUN useradd -m -s /bin/bash admin && \
 RUN systemctl enable NetworkManager
 
 # Créer une interface dummy et l’ajouter à NetworkManager
-RUN ip link add fake0 type dummy
+# RUN ip link add fake0 type dummy && \
+#    nmcli con add type dummy con-name fake ifname fake0 ip4 1.2.3.4/24 gw4 1.2.3.1
 
 # Exposer le port par défaut de Cockpit
 EXPOSE 9090
